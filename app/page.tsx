@@ -4,7 +4,6 @@ import CarouselImage from 'ss/components/Carousel/CarouselImage';
 import Categories from 'ss/components/Categories/categories';
 import Postcard from 'ss/components/card/postcard';
 import { getAllPost } from 'ss/context/sanity';
-import { Postcard } from 'ss/components/card/postcard';
 
 interface Category {
   viewCount: number;
