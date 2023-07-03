@@ -1,4 +1,4 @@
-'use client'
+
 import Navbar from 'ss/components/Navbar/navbar';
 import './global.css'
 import Footer from 'ss/components/Footer/footer';
