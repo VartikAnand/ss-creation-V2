@@ -2,7 +2,6 @@
 import Navbar from 'ss/components/Navbar/navbar';
 import './global.css'
 import Footer from 'ss/components/Footer/footer';
-import { ThemeProvider } from "@material-tailwind/react";
 
 export const metadata = {
   title: "SS-Creation",
@@ -17,11 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <ThemeProvider>
         <Navbar />
         <main>{children}</main>
         <Footer />
-        </ThemeProvider>
       </body>
     </html>
   );
