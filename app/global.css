@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide the scrollbar for mobile and tablets */
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Hide the scrollbar for the root element */
+/* global.css */
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Set the initial color as transparent */
+}
+
+/* Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f41186, #FFB4DC);
+   /* Set the gradient pink color for the scrollbar thumb */
+   border-radius: 4px;
+  }
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Set the background color of the scrollbar track */
+}
+
+
+
+
