@@ -18,7 +18,7 @@ export const getCategory = async () => {
     });
     return items;
   }
-
+ 
 
 
   export const getAllPost = async () => {
@@ -27,3 +27,15 @@ export const getCategory = async () => {
     });
     return items;
   }
+
+
+  export const getPostBySlug = async (slug: string) => {
+    const items = await client
+      .fetch(`*[_type == "post" && slug.current == $slug]
+      `, { slug })
+      .then((data) => {
+        return data;
+      });
+  
+    return items;
+  };
