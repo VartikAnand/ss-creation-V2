@@ -12,6 +12,14 @@ export const getCategory = async () => {
     return items;
   }
 
+  export const getCarousel = async () => {
+    const items = await client.fetch('*[_type == "carousel"]').then((data) => {
+      return data;
+    });
+    return items;
+  }
+
+
 
   export const getAllPost = async () => {
     const items = await client.fetch('*[_type == "post"]').then((data) => {

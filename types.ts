@@ -5,6 +5,8 @@ type Base = {
   };
   
   interface Category extends Base {
+    image: string | undefined;
+    alt: string | undefined;
     viewCount: number;
     githubUrl: string;
     instagramUrl: string;

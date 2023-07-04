@@ -2,10 +2,38 @@
 import { useState, useEffect } from 'react';
 import { Carousel } from '@material-tailwind/react';
 import ImageLoader from '../Loader/imageLoader/imageLoader';
-import CategoryLoader from '../Loader/categoryLoader/categoryLoader';
+import { getCarousel, urlFor } from 'ss/context/sanity';
+import { Url } from 'url';
+
+
+
+interface Image {
+
+  _id:string;
+  alt:string;
+  image:{
+    _type:'string'
+   };
+}
+
+
 
 export default function CarouselImage() {
   const [loading, setLoading] = useState(true);
+
+  const [allCategory, setAllCategory] = useState<Image[]>([]);
+
+  useEffect(() => {
+    // Loading category list from backend
+    getCarousel()
+      .then((data) => {
+        setAllCategory(data);
+        setLoading(false);
+      })
+      .catch((err) => alert(err));
+  }, []);
+
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,18 +54,10 @@ export default function CarouselImage() {
 
   return (
     <Carousel transition={{ duration: 1 }} className="rounded-xl h-96 w-full object-cover overflow-hidden shadow-lg">
-      <img
-        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-        alt="image 1"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-        alt="image 2"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-        alt="image 3"
-      />
-    </Carousel>
+  {allCategory.map((category) => (
+  <img key={category._id} src={urlFor(category.image).url()} alt={category.alt} className='flex items-center h-full w-full ' />
+))}
+
+  </Carousel>
   );
 }

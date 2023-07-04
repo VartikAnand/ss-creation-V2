@@ -42,24 +42,12 @@ const Home = () => {
         <div className="hidden lg:block">
           <CarouselImage />
         </div>
-        {isLoading ? (
-          <p>Loading...</p> // Show the loading text while isLoading is true
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {allPost.map((item) => (
-              <Postcard
-                key={item._id}
-                imageUrl={item.mainImage}
-                title={item.title}
-                views={item.viewCount}
-                downloadUrl={item.githubUrl}
-                downloadTooltip="Download"
-                socialMediaUrl={item.instagramUrl}
-                socialMediaTooltip="Check Out" mainImage={''}              />
-            ))}
+    
+              <Postcard/>
+            
           </div>
-        )}
-      </div>
+   
+     
     </section>
   );
 };
