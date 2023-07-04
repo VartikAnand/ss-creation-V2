@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { getCategory, urlFor } from 'ss/context/sanity';
+import CategoryLoader from '../Loader/categoryLoader/categoryLoader';
 
 interface Category {
   _id: string;
@@ -43,8 +44,10 @@ const Categories = () => {
   return (
     <div className="flex px-3 flex-row gap-2 overflow-x-auto w-full scrollbar-hide py-4 my-4 sm:px-2  md:px-8 ">
       {isLoading ? (
-        <div className="text-center">Loading...</div>
-      ) : (
+    <div className="relative flex justify-center  align-middle items-center w-full">
+    <CategoryLoader />
+  </div>
+) : (
         allCategory.map((category) => (
           <button
             type="button"
