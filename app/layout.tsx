@@ -15,6 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta name="p:domain_verify" content="72e3b18ed606aea00d409474cf3e7161"/>
       <body>
         <Navbar />
         <main>{children}</main>
