@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { MdOutlineGirl } from 'react-icons/md';
 import { RiContactsFill } from 'react-icons/ri';
@@ -24,7 +25,7 @@ const About = () => {
           <h2>I bring imagination to life through captivating 3D art and animations, specializing in modeling, texturing, rigging, and animation using industry-standard tools.</h2>
           <div className="flex lg:flex-row md:flex-col pt-8 mt-10 gap-10">
               <button onClick={ handleEmailClick} className="bg-primary inline-flex py-3 px-5 rounded-lg items-center hover:bg-pink-400 focus:outline-none">
-                <MdOutlineGirl className="text-lg text-white mb-1" />
+                <MdOutlineGirl className="text-3xl text-white mb-1" />
                 <span className="ml-4 flex items-center flex-col leading-none justify-center align-middle">
                   <span className="text-xl text-white mb-1">Hire Me</span>
                 </span>
