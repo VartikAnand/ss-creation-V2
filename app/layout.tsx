@@ -1,4 +1,8 @@
 
+"use client";
+ 
+import { ThemeProvider} from "@material-tailwind/react";
+ 
 import Navbar from 'ss/components/Navbar/navbar';
 import './global.css'
 import Footer from 'ss/components/Footer/footer';
@@ -20,9 +24,11 @@ export default function RootLayout({
 
       </head>
       <body>
+      <ThemeProvider>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
